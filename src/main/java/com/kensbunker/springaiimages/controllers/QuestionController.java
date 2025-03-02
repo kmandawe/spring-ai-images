@@ -1,9 +1,9 @@
-package com.kensbunker.springaifunctions.controller;
+package com.kensbunker.springaiimages.controllers;
 
-import com.kensbunker.springaifunctions.model.Answer;
-import com.kensbunker.springaifunctions.model.Question;
-import com.kensbunker.springaifunctions.services.OpenAIService;
+import com.kensbunker.springaiimages.model.Question;
+import com.kensbunker.springaiimages.services.OpenAIService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,13 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class QuestionController {
   private final OpenAIService openAIService;
 
-  @PostMapping("/weather")
-  public Answer askQuestion(@RequestBody Question question) {
-    return openAIService.getAnswer(question);
-  }
-
-  @PostMapping("/stock")
-  public Answer getStockPrice(@RequestBody Question question) {
-    return openAIService.getStockPrice(question);
+  @PostMapping(value = "/image", produces = MediaType.IMAGE_PNG_VALUE)
+  public byte[] getImage(@RequestBody Question question) {
+    return openAIService.getImage(question);
   }
 }

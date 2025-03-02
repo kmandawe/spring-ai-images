@@ -1,3 +1,3 @@
-package com.kensbunker.springaifunctions.model;
+package com.kensbunker.springaiimages.model;
 
 public record Question(String question) {}

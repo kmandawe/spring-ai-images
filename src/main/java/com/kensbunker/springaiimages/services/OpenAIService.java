@@ -1,9 +1,7 @@
-package com.kensbunker.springaifunctions.services;
+package com.kensbunker.springaiimages.services;
 
-import com.kensbunker.springaifunctions.model.Answer;
-import com.kensbunker.springaifunctions.model.Question;
+import com.kensbunker.springaiimages.model.Question;
 
 public interface OpenAIService {
-  Answer getAnswer(Question question);
-  Answer getStockPrice(Question question);
+  byte[] getImage(Question question);
 }
